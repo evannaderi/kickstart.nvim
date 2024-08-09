@@ -102,7 +102,7 @@ vim.g.have_nerd_font = false
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -157,8 +157,29 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Set tab options
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+-- Set keymaps
+vim.keymap.set('i', 'jf', '<Esc>', { desc = 'Exit insert mode' })
+vim.keymap.set('n', '<leader>;', '$', { desc = 'Go to end of line' })
+vim.keymap.set('n', '<leader>h', '^', { desc = 'Go to first non-blank character of line' })
+vim.keymap.set('n', '<leader>H', '0', { desc = 'Go to start of line' })
+vim.keymap.set({ 'n', 'v' }, '<leader>j', '<C-d>zz', { desc = 'Move half page down and center' })
+vim.keymap.set({ 'n', 'v' }, '<leader>k', '<C-u>zz', { desc = 'Move half page up and center' })
+vim.keymap.set('n', '<leader>n', ':bn<CR>', { desc = 'Next buffer' })
+vim.keymap.set('n', '<leader>p', ':bp<CR>', { desc = 'Previous buffer' })
+vim.keymap.set('n', '<leader>b', ':ls<CR>:b<Space>', { desc = 'List buffers and switch' })
+vim.keymap.set('n', '<leader>s', ':split<CR>', { desc = 'Horizontal split' })
+vim.keymap.set('n', '<leader>v', ':vsplit<CR>', { desc = 'Vertical split' })
+vim.keymap.set('n', '<Leader>cl', 'iconsole.log(``);<Esc>F`i', { desc = 'Insert console.log' })
+vim.keymap.set('n', '<Leader>tc', 'itry {\n  \n} catch (error) {\n  console.error(`Error: ${error}`);\n}<Esc>O', { desc = 'Insert try-catch block' })
+vim.keymap.set('n', '<Leader>ie', 'iif (`condition`) {\n  \n} else {\n  \n}<Esc>O', { desc = 'Insert if-else block' })
+vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
