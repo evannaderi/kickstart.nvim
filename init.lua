@@ -166,6 +166,7 @@ vim.opt.expandtab = true
 --  See `:help vim.keymap.set()`
 -- Set keymaps
 vim.keymap.set('i', 'jf', '<Esc>', { desc = 'Exit insert mode' })
+vim.keymap.set('t', 'jf', [[<C-\><C-n>]], { noremap = true, desc = 'Exit terminal mode' })
 vim.keymap.set('n', '<leader>;', '$', { desc = 'Go to end of line' })
 vim.keymap.set('n', '<leader>h', '^', { desc = 'Go to first non-blank character of line' })
 vim.keymap.set('n', '<leader>H', '0', { desc = 'Go to start of line' })
@@ -180,6 +181,7 @@ vim.keymap.set('n', '<Leader>cl', 'iconsole.log(``);<Esc>F`i', { desc = 'Insert 
 vim.keymap.set('n', '<Leader>tc', 'itry {\n  \n} catch (error) {\n  console.error(`Error: ${error}`);\n}<Esc>O', { desc = 'Insert try-catch block' })
 vim.keymap.set('n', '<Leader>ie', 'iif (`condition`) {\n  \n} else {\n  \n}<Esc>O', { desc = 'Insert if-else block' })
 vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
+vim.keymap.set('n', '<leader>tm', ':terminal<CR>', { desc = 'Open terminal' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -914,6 +916,9 @@ require('lazy').setup({
       'RainbowDelimQuoted',
       'RainbowMultiDelim',
     },
+  },
+  {
+    'github/copilot.vim',
   },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
