@@ -182,6 +182,7 @@ vim.keymap.set('n', '<Leader>tc', 'itry {\n  \n} catch (error) {\n  console.erro
 vim.keymap.set('n', '<Leader>ie', 'iif (`condition`) {\n  \n} else {\n  \n}<Esc>O', { desc = 'Insert if-else block' })
 vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
 vim.keymap.set('n', '<leader>tm', ':terminal<CR>', { desc = 'Open terminal' })
+vim.keymap.set('n', '<leader>rb', ':file<Space>', { desc = 'Rename buffer' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -920,7 +921,18 @@ require('lazy').setup({
   {
     'github/copilot.vim',
   },
-
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      -- Add any custom options here
+      padding = true,
+      sticky = true,
+      mappings = {
+        basic = true,
+        extra = true,
+      },
+    },
+  },
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
