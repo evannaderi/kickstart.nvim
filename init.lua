@@ -213,6 +213,7 @@ else
   vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
   vim.keymap.set('n', '<leader>tm', ':terminal<CR>', { desc = 'Open terminal' })
   vim.keymap.set('n', '<leader>rb', ':file<Space>', { desc = 'Rename buffer' })
+  vim.keymap.set('n', '<leader>e', ':Ex<CR>', { desc = 'Open file explorer' })
 
   -- Clear highlights on search when pressing <Esc> in normal mode
   --  See `:help hlsearch`
